@@ -1,29 +1,25 @@
 module.exports = {
-  root: true,
   env: {
+    browser: true,
+    es2021: true,
     node: true,
   },
-  parser: '@typescript-eslint/parser',
-  plugins: [
-    '@typescript-eslint',
-  ],
   extends: [
-    'plugin:vue/vue3-essential',
-    '@vue/airbnb',
-    'plugin:@typescript-eslint/eslint-recommended',
+    'eslint:recommended',
+    'plugin:vue/vue3-recommended',
     'plugin:@typescript-eslint/recommended',
+    '@vue/typescript/recommended',
+    'airbnb-base',
   ],
   parserOptions: {
-    ecmaVersion: 2020,
+    ecmaVersion: 'latest',
+    parser: '@typescript-eslint/parser',
+    sourceType: 'module',
   },
+  plugins: ['vue', '@typescript-eslint'],
   rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'vue/multi-word-component-names': 'off',
+    'import/no-extraneous-dependencies': 'off',
     'import/no-unresolved': 'off',
-    'import/extensions': 'off',
-    'vue/experimental-script-setup-vars': 'off',
-  },
-  settings: {
-    'import/extensions': ['.js', '.mjs', '.jsx', '.ts', '.tsx'],
   },
 };
